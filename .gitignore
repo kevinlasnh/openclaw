@@ -1,5 +1,13 @@
 .claude/
+.codex/
+.gemini/
+.agents/
+.brv/
+.workflows/
+deploy_tmp/
 wsl_output.txt
 openclaw-full-migrate-*.tgz
+kronos-skill.zip
 nul
 Thumbs.db
+upstream/openclaw/

@@ -1,0 +1,30 @@
+{
+  // Tailscale policy template for one-way access:
+  // Kevin's devices can reach spark-f153.
+  // spark-f153 cannot initiate connections back to Kevin's devices.
+
+  "tagOwners": {
+    // Keep this tag under your control.
+    "tag:client-spark-f153": []
+  },
+
+  "grants": [
+    {
+      // Replace with your Tailscale login identity if you want all of your
+      // own devices to reach spark-f153.
+      "src": ["REPLACE_WITH_YOUR_TAILSCALE_EMAIL"],
+
+      // The customer's machine joins as a tagged device.
+      "dst": ["tag:client-spark-f153"],
+
+      // "*" means you can reach any port on spark-f153 over Tailscale.
+      // Tighten this later if you only want SSH or a few service ports.
+      "ip": ["*"]
+    }
+  ]
+
+  // Important:
+  // 1. Do not add a reverse grant with src tag:client-spark-f153.
+  // 2. Remove or narrow any existing broad rule that would let this tagged
+  //    device reach the rest of your tailnet.
+}
